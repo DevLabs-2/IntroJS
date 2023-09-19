@@ -17,8 +17,11 @@ const array1 = [1,2,3,4,5,6,7,8,9,10]
 Arrays(array1)
 EscaleraA()
 EscaleraB()
+document.getElementById('7').innerHTML = ("Los nombres con a son " + NombresConA(prompt('Introduci los nombres separados por una coma')));
+document.getElementById('8').innerHTML = ("Tu palabra es: " + CadenaSeparada(prompt('Introduci 2 palabras separadas por una coma')));
+document.getElementById('9').innerHTML = ("Tu palabra es: " + CadenaConNumeros(prompt('Introduci una palabra, y luego de la coma un numero')));
+document.getElementById('10').innerHTML = ("Tu lista es: " + StrConSeparador    (prompt('Introduci una lista de palabras separadas por coma')));
 */
-NombresConA(prompt('Introduci los nombres separados por una coma'))
 //1
 function CalcularEdad(fecha)
 {
@@ -97,9 +100,34 @@ function EscaleraB(){
 //7
 function NombresConA(str){
     let array = str.split(',')
+    console.log(array)
+    const arrayNombres = [];
     array.forEach(element => {
-        if(element[0] != 'A' && element[0] != 'a'){
-
+        if(element[0] == 'A' || element[0] == 'a'){
+            arrayNombres.push(element)
         }
     });
+    return arrayNombres
+}
+//8
+function CadenaSeparada(str){
+    let cadena = str.split(',')
+    console.log(cadena)
+    const palabra2 = cadena[1];
+    return palabra2
+}
+//9
+function CadenaConNumeros(str){
+    let cadena = str.split(',')
+    return cadena[0].slice(0,cadena[1])
+}
+//10
+function StrConSeparador(str){
+    let array = str.split(',')
+    str = ""
+    str += array[0];
+    array.forEach(element =>{
+        if(element != array[0]){str += " - " + element;}
+    });
+    return str;
 }
