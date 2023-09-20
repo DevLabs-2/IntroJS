@@ -22,6 +22,8 @@ document.getElementById('8').innerHTML = ("Tu palabra es: " + CadenaSeparada(pro
 document.getElementById('9').innerHTML = ("Tu palabra es: " + CadenaConNumeros(prompt('Introduci una palabra, y luego de la coma un numero')));
 document.getElementById('10').innerHTML = ("Tu lista es: " + StrConSeparador    (prompt('Introduci una lista de palabras separadas por coma')));
 */
+let pedido = prompt('Ingresa tu pedido (nombre:total, )')
+CalculadoraDeRecaudacion(pedido)
 //1
 function CalcularEdad(fecha)
 {
@@ -130,4 +132,14 @@ function StrConSeparador(str){
         if(element != array[0]){str += " - " + element;}
     });
     return str;
+}
+//11
+function CalculadoraDeRecaudacion(str){
+    let array = str.split(',')
+    total = 0
+    for(i = 0; i < array.length; i++){
+        total += parseInt(array[i].slice(array[i].indexOf(":")+1))
+    }
+    console.log(total)
+    
 }
